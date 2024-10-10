@@ -53,8 +53,36 @@ table {
 /* --END-- CSS RESET */
 
 .layout {
-    background-color: darkviolet;
     min-height: 100dvh;
     min-width: 100dvw;
     position: relative;
+    font-weight: bold;
+
+    > div {
+        padding: 10px;
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
+    }
+
+    .header {
+        background-color: #f4efef;
+    }
+    .feat_yellow {
+        background-color: #f3e500;
+    }
+    .feat_purple {
+        background-color: #5f10f5;
+        color: #fff;
+    }
+    .feat_red {
+        background-color: #e33d94;
+    }
+    .sign_up {
+        background-color: #f1efe9;
+    }
+    .content {
+        background-color: #eafffd;
+    }
 }
