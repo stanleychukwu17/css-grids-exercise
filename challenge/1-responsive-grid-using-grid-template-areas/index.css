@@ -21,6 +21,7 @@ body {
     display: block;
     position: relative;
     overflow: hidden;
+    overflow-y: auto;
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
@@ -57,9 +58,22 @@ table {
     min-width: 100dvw;
     position: relative;
     font-weight: bold;
+    background-color: gold;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 250px 250px 150px 400px;
+    grid-template-areas:
+    "header         header          header"
+    "feat_yellow    feat_purple     feat_red"
+    "sign_up        sign_up         sign_up"
+    "cnt            cnt             cnt"
+    ;
 
     > div {
         padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &::first-letter {
             text-transform: capitalize;
@@ -68,21 +82,56 @@ table {
 
     .header {
         background-color: #f4efef;
+        grid-area: header;
     }
     .feat_yellow {
         background-color: #f3e500;
+        grid-area: feat_yellow;
     }
     .feat_purple {
         background-color: #5f10f5;
         color: #fff;
+        grid-area: feat_purple;
     }
     .feat_red {
         background-color: #e33d94;
+        grid-area: feat_red;
     }
     .sign_up {
         background-color: #f1efe9;
+        grid-area: sign_up;
     }
     .content {
         background-color: #eafffd;
+        grid-area: cnt;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .layout {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 250px 300px 250px 250px;
+        grid-template-areas: 
+        "header         header"
+        "cnt            cnt"
+        "sign_up        feat_yellow"
+        "feat_red       feat_purple"
+        ;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 300px 100px 200px 200px 200px;
+        grid-template-areas: 
+        "header"
+        "cnt"
+        "sign_up"
+        "feat_yellow"
+        "feat_red"
+        "feat_purple"
+        ;
     }
 }
